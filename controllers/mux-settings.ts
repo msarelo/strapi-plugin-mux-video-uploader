@@ -19,7 +19,7 @@ const clearConfig = async (ctx:Context) => {
 };
 
 const saveConfig = async (ctx:Context) => {
-  const config = pick(ctx.request.body, 'access_token', 'secret_key', 'webhook_signing_secret');
+  const config = pick(ctx.body, 'access_token', 'secret_key', 'webhook_signing_secret');
 
   let successful = false;
 
