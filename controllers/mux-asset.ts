@@ -48,7 +48,7 @@ const create = async (ctx:Context) => {
 
     entity = await strapi.entityService.create({ data, files }, { model });
   } else {
-    entity = await strapi.entityService.create({ data: ctx.request.body }, { model });
+    entity = await strapi.entityService.create({ data: ctx.body }, { model });
   }
 
   return sanitizeEntity(entity, {model: { options: {}, attributes:[]}});
@@ -64,7 +64,7 @@ const update = async (ctx:Context) => {
 
     entity = await strapi.entityService.update({ params: { id }, data, files }, { model });
   } else {
-    entity = await strapi.entityService.update({ params: { id }, data: ctx.request.body }, { model });
+    entity = await strapi.entityService.update({ params: { id }, data: ctx.body }, { model });
   }
 
   return sanitizeEntity(entity, {model: { options: {}, attributes:[]}});
