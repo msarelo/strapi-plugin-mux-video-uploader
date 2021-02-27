@@ -12,7 +12,7 @@ const model = `plugins::${pluginId}.mux-asset`;
 const index = async (ctx:Context) => ctx.send({ message: 'ok' });
 
 const submitDirectUpload = async (ctx:Context) => {
-  const data = ctx.request.body;
+  const data = ctx.body;
 
   const config = await getConfig('general');
 
@@ -37,7 +37,7 @@ const submitDirectUpload = async (ctx:Context) => {
 };
 
 const submitRemoteUpload = async (ctx:Context) => {
-  const data = ctx.request.body;
+  const data = ctx.body;
 
   const config = await getConfig('general');
 
@@ -70,7 +70,7 @@ const submitRemoteUpload = async (ctx:Context) => {
 };
 
 const muxWebhookHandler = async (ctx:Context) => {
-  const body = ctx.request.body;
+  const body = ctx.body;
   const sig = ctx.request.headers['mux-signature'];
 
   const config = await getConfig('general');
